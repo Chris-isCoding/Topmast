@@ -112,7 +112,7 @@ const AppContextProvider = ({ children }) => {
 
   const getStats = async (containers) => {
     const statsPromises = containers?.map((container) =>
-      ddClient.docker.cli.exec('stats', ['--no-stream', container.ID])
+      client.docker.cli.exec('stats', ['--no-stream', container.ID])
     );
 
     const results = await Promise.all(statsPromises);
@@ -126,19 +126,33 @@ const AppContextProvider = ({ children }) => {
 
   const startContainer = async (containerID) => {
     try {
-      await ddClient.docker.cli.exec('container start', [containerID]);
+      await client.docker.cli.exec('container start', [containerID]);
       console.log(`Container ${containerID} started successfully.`);
     } catch (error) {
       console.error(`Error starting container ${containerID}:`, error);
     }
   };
 
-  const killContainer = (containerID) => {
-    ddClient.docker.cli.exec('container stop', [containerID]);
+  const killContainer = async (containerID) => {
+    try {
+      await client.docker.cli.exec('container stop', [containerID]);
+      console.log(`Container ${containerID} stopped successfully.`);
+    } catch (error) {
+      console.error(`Error stopping container ${containerID}:`, error);
+    }
   };
 
-  const superKillContainer = (containerID) => {
-    ddClient.docker.cli.exec('container rm', ['-f', containerID]);
+  const superKillContainer = async (containerID) => {
+    try {
+      await client.docker.cli.exec('container rm', ['-f', containerID]);
+      console.log(`Container ${containerID} removed successfully.`);
+      // Remove the container from the global state
+      changeContainers((prevContainers) =>
+        prevContainers.filter((container) => container.ID !== containerID)
+      );
+    } catch (error) {
+      console.error(`Error removing container ${containerID}:`, error);
+    }
   };
 
   return (
