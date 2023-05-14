@@ -4,7 +4,7 @@ import ContainerView from './views/ContainerView';
 import LogsDashboard from './components/LogsDashboard';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Logo from '../../topmast_cruise.svg';
+import Logo from '../assets/topmast_cruise.svg';
 
 export function App() {
   return (
