@@ -1,5 +1,5 @@
 import { useAppContext } from '../context/AppContext';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,16 +13,14 @@ import { Typography } from '@mui/material';
 const DashboardView = () => {
   const {
     containers,
-    logs,
     stats,
     getContainers,
     setCurrentContainer,
     getLogs,
     getStats,
-    ddClient,
     startContainer,
     killContainer,
-    superKillContainer,
+    removeContainer,
   } = useAppContext();
 
   useEffect(() => {
@@ -233,7 +231,7 @@ const DashboardView = () => {
                       color: red[300],
                     }}
                     onClick={() => {
-                      superKillContainer(container.ID);
+                      removeContainer(container.ID);
                     }}
                   >
                     FORCE REMOVE

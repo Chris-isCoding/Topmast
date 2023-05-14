@@ -110,7 +110,7 @@ const AppContextProvider = ({ children }) => {
     changeCurrentContainer(id);
   };
 
-  const getStats = async (containers) => {
+  const getStats = async (containers = []) => {
     const statsPromises = containers?.map((container) =>
       client.docker.cli.exec('stats', ['--no-stream', container.ID])
     );
@@ -142,13 +142,27 @@ const AppContextProvider = ({ children }) => {
     }
   };
 
-  const superKillContainer = async (containerID) => {
+  const removeContainer = async (containerID) => {
     try {
+      // Remove the container from Docker
       await client.docker.cli.exec('container rm', ['-f', containerID]);
       console.log(`Container ${containerID} removed successfully.`);
+
       // Remove the container from the global state
       changeContainers((prevContainers) =>
         prevContainers.filter((container) => container.ID !== containerID)
+      );
+
+      // Remove the container's logs from the global state
+      changeLogs((prevLogs) => {
+        const newLogs = { ...prevLogs };
+        delete newLogs[containerID];
+        return newLogs;
+      });
+
+      // Remove the container's stats from the global state
+      changeStats((prevStats) =>
+        prevStats.filter((stat) => stat[0] !== containerID)
       );
     } catch (error) {
       console.error(`Error removing container ${containerID}:`, error);
@@ -171,7 +185,7 @@ const AppContextProvider = ({ children }) => {
         saveState,
         startContainer,
         killContainer,
-        superKillContainer,
+        removeContainer,
         dispatch,
       }}
     >
