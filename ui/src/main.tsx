@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { MemoryRouter } from 'react-router-dom';
 
-import CssBaseline from "@mui/material/CssBaseline";
-import { DockerMuiThemeProvider } from "@docker/docker-mui-theme";
-import { AppContextProvider} from "./context/AppContext";
+import CssBaseline from '@mui/material/CssBaseline';
+import { DockerMuiThemeProvider } from '@docker/docker-mui-theme';
+import { AppContextProvider } from './context/AppContext';
 
 import { App } from './App';
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     {/*
       If you eject from MUI (which we don't recommend!), you should add
@@ -16,16 +16,13 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       some minimal Docker theming.
     */}
     <DockerMuiThemeProvider>
-
       <CssBaseline />
 
       <AppContextProvider>
-        <BrowserRouter>
+        <MemoryRouter>
           <App />
-        </BrowserRouter>
+        </MemoryRouter>
       </AppContextProvider>
-
     </DockerMuiThemeProvider>
-
   </React.StrictMode>
 );
