@@ -16,10 +16,12 @@ LABEL org.opencontainers.image.title="Topmast" \
     org.opencontainers.image.vendor="Topmast" \
     org.opencontainers.image.version="0.1.1-alpha" \
     com.docker.desktop.extension.api.version="0.3.3" \
-    com.docker.extension.screenshots='[]' \
+    com.docker.extension.categories='["developer-tools", "logs"]' \
+    com.docker.extension.changelog="https://github.com/oslabs-beta/Topmast/releases/tag/0.1.1-alpha" \
+    com.docker.extension.screenshots='[{"url":"https://raw.githubusercontent.com/oslabs-beta/Topmast/dev/public/Topmast.png", "alt":"Screenshot of Topmast"}]' \
     com.docker.extension.detailed-description="Topmast simplifies the management of Docker logs and container statistics. This extension will provide a centralized platform for viewing and analyzing Docker logs, as well as tracking and monitoring container performance. With Topmast, developers utilizing Docker will be able to consolidate their Docker-related data in one place, enabling easier troubleshooting and analysis." \
     com.docker.extension.publisher-url="https://topmast.dev" \
-    com.docker.extension.additional-urls='[{"title": "GitHub", "url": "https://github.com/oslabs-beta/Topmast"}]' \
+    com.docker.extension.additional-urls='[{"title": "GitHub", "url": "https://github.com/oslabs-beta/Topmast"}, {"title": "Documentation", "url": "https://topmast.dev/documentation"}]' \
     com.docker.desktop.extension.icon="https://raw.githubusercontent.com/oslabs-beta/Topmast/4406f7718b1c71af768cf47a474161ebcb3d2817/topmast_cruise.svg"
 
 COPY docker-compose.yaml .
