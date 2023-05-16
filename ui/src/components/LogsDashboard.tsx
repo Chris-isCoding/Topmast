@@ -152,12 +152,12 @@ const LogsDashboard = () => {
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
-      <Toolbar>
+      {/* <Toolbar sx={{ marginBottom: '10px', paddingRight: '10px' }}>
         <Box sx={{ flexGrow: 1 }} />
         <Button variant="contained" color="secondary" onClick={clearLogs}>
           Clear Logs
         </Button>
-      </Toolbar>
+      </Toolbar> */}
       <Paper elevation={3} sx={{ margin: '20px', padding: '20px' }}>
         <Typography variant="h6" gutterBottom>
           Select Containers:
