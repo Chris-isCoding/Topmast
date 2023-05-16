@@ -1,5 +1,5 @@
 IMAGE?=moby-metrics/topmast
-TAG?=0.1.1-alpha
+TAG?=0.1.2-alpha
 
 BUILDER=buildx-multi-arch
 
