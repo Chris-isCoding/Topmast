@@ -89,7 +89,7 @@ const DashboardView = () => {
       {containers.map((container) => {
         if (container.Image !== 'moby-metrics/topmast:latest') {
           return (
-            <Card key={container.ID}>
+            <Card key={container.ID} sx={{ mb: 1 }}>
               <CardContent>
                 <Box
                   m={1} //margin
