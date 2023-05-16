@@ -2,7 +2,7 @@
   "scripts": {
     "install-extension": "docker buildx build -t moby-metrics/topmast:latest . --load && docker extension install moby-metrics/topmast:latest -f",
     "extension": "docker extension dev ui-source moby-metrics/topmast:latest http://localhost:3000",
-    "enable-frontend-dev": "npm install --prefix ui && npm run extension && npm run dev --prefix ui",
+    "enable-frontend-dev": "npm clean-install --prefix ui && npm run extension && npm run dev --prefix ui",
     "enable-chrome-devtools": "docker extension dev debug moby-metrics/topmast:latest",
     "disable-chrome-devtools": "docker extension dev reset moby-metrics/topmast:latest",
     "uninstall-extension": "docker extension rm moby-metrics/topmast:latest"
