@@ -61,31 +61,6 @@ const DashboardView = () => {
 
   return (
     <div>
-      <Typography
-        sx={{
-          fontWeight: 'bold',
-          my: 2,
-          fontSize: 12,
-          textTransform: 'uppercase',
-        }}
-      >
-        {' '}
-        Dashboard |&nbsp;
-        <Link to="/containerlogs" color="blue[600]">
-          Container Logs
-        </Link>
-      </Typography>
-
-      <Box
-        component="span"
-        sx={{
-          color: grey[500],
-          fontSize: 10,
-          textTransform: 'uppercase',
-          mt: 1,
-        }}
-      ></Box>
-
       {containers.map((container) => {
         if (container.Image !== 'moby-metrics/topmast:latest') {
           return (
