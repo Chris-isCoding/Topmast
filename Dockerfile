@@ -14,10 +14,10 @@ FROM alpine
 LABEL org.opencontainers.image.title="Topmast" \
     org.opencontainers.image.description="Topmast is an extension that simplifies the management of Docker logs and container statistics. Please note that this is an alpha version, offering early functionality with limited stability or incomplete features." \
     org.opencontainers.image.vendor="Topmast" \
-    org.opencontainers.image.version="0.1.1-alpha" \
+    org.opencontainers.image.version="0.1.2-alpha" \
     com.docker.desktop.extension.api.version="0.3.3" \
     com.docker.extension.categories='["developer-tools", "logs"]' \
-    com.docker.extension.changelog="https://github.com/oslabs-beta/Topmast/releases/tag/0.1.1-alpha" \
+    com.docker.extension.changelog="https://github.com/oslabs-beta/Topmast/blob/dev/CHANGELOG.md" \
     com.docker.extension.screenshots='[{"url":"https://raw.githubusercontent.com/oslabs-beta/Topmast/dev/public/Topmast.png", "alt":"Screenshot of Topmast"}]' \
     com.docker.extension.detailed-description="Topmast simplifies the management of Docker logs and container statistics. This extension will provide a centralized platform for viewing and analyzing Docker logs, as well as tracking and monitoring container performance. With Topmast, developers utilizing Docker will be able to consolidate their Docker-related data in one place, enabling easier troubleshooting and analysis." \
     com.docker.extension.publisher-url="https://topmast.dev" \
